@@ -1,0 +1,15 @@
+version: '2'
+services:
+  homebridge:
+    image: oznu/homebridge:latest #0.4.53
+    restart: unless-stopped
+    ports:
+      - 9999:9999
+    environment:
+      - TZ=Europe/Zurich
+      - PUID=502
+      - PGID=20
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=9999
+    volumes:
+      - ./conf:/homebridge
